@@ -1,7 +1,4 @@
-package com.cloud.demo.sys.organization.dto;
-
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+package com.cloud.demo.external.user.dto;
 
 import java.util.Date;
 
@@ -12,40 +9,23 @@ import java.util.Date;
  * @creater 2018/6/14 下午5:39
  * @modified
  */
-@ApiModel(value = "人员数据传输对象")
 public class Person {
 
-    @ApiModelProperty("登录名")
     protected String fdLoginName;
-    @ApiModelProperty("姓名")
     protected String fdName;
-    @ApiModelProperty("密码")
     protected String fdPassword;
-    @ApiModelProperty("所属部门编号")
     protected String fdParent;
-    @ApiModelProperty("年龄")
     protected int fdAge;
-    @ApiModelProperty("性别")
     protected String fdSex;
-    @ApiModelProperty("邮箱")
     protected String fdEmail;
-    @ApiModelProperty("办公地点")
     protected String fdOfficeLocation;
-    @ApiModelProperty("出生日期")
     protected Date fdBirthday;
-    @ApiModelProperty("参加工作日期")
     protected Date fdStartWorkDate;
-    @ApiModelProperty("入职日期")
     protected Date fdJoinedDate;
-    @ApiModelProperty("离职日期")
     protected Date fdLeaveDate;
-    @ApiModelProperty("编号")
     protected String fdNo;
-    @ApiModelProperty("是否启用")
     protected boolean enabled = true;
-    @ApiModelProperty("是否未被锁定")
     protected boolean nonLocked = true;
-    @ApiModelProperty("是否未失效")
     protected boolean nonExpired = true;
 
 

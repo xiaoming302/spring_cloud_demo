@@ -1,6 +1,6 @@
-package com.cloud.demo.api;
+package com.cloud.demo.api.controller;
 
-import com.cloud.demo.sys.organization.dto.Person;
+import com.cloud.demo.api.dto.Person;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -32,13 +32,14 @@ public class ServerUserPersonApi {
 
     @ApiOperation(value = "findPerson", notes = "根据关键字查询用户")
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "loginName", value = "用户登录名", paramType = "query", dataType = "String"),
-            @ApiImplicitParam(name = "testParam", value = "测试数据", paramType = "query", dataType = "String")
+            @ApiImplicitParam(name = "searchColumn", value = "查询字段，目前支持loginName、personNo;",
+                    paramType = "query", dataType = "String"),
+            @ApiImplicitParam(name = "searchValue", value = "要查询的值", paramType = "query", dataType = "String")
     })
     @RequestMapping(value = "/findPerson", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public Person findPersonByLoginName(@RequestParam(name = "loginName") String loginName,
-                                        @RequestParam(name = "testParam") String testParam) {
+    public Person findPerson(@RequestParam(name = "searchColumn") String searchColumn,
+                                        @RequestParam(name = "searchValue") String searchValue) {
         Person person = new Person();
         person.setFdName("张三");
         person.setFdLoginName("zhangsan");

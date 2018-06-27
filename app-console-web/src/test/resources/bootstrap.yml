@@ -6,10 +6,10 @@ spring:
     name: app-server-user
   cloud:
     config:
-#      discovery:
+#      discovery: #集群配置项部署，部署在同一网络环境时使用
 #        enabled: true
 #        service-id: server-config
-      uri: http://localhost:8771/
+      uri: http://localhost:8771/ #由于config部署在docker中，故先直接写死IP，后续部署上docker是再使用集群配置项
       profile: dev
       label: master
   zipkin:
@@ -17,6 +17,12 @@ spring:
   sleuth:
     sampler:
       percentage: 1
+
+feign:
+  httpclient:
+    enabled: true
+  hystrix:
+    enabled: true
 
 eureka:
   client:
